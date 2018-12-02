@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         startService(new Intent(this, DownloadService.class));
 
-        Bitmap image = getIntent().getParcelableExtra(DownloadService.DOWNLOADED_FILE);
-        if(image != null) {
-            ((ImageView) findViewById(R.id.image_view)).setImageBitmap(image);
-        }
-
         final BroadcastReceiver fileDownloadedBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
